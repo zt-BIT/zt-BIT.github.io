@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ting Zhang | Interactive Decision Planning Lab</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #222222;
+      --muted: #666666;
+      --link: #1f5fbf;
+      --border: #e5e7eb;
+      --card: #f8fafc;
+      --card-hover: #eef4ff;
+      --accent: #0f766e;
+      --accent-light: #e6fffb;
+      --max-width: 1080px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 28px 22px 60px;
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: 1fr 220px;
+      gap: 28px;
+      align-items: center;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .profile h1 {
+      margin: 0 0 8px;
+      font-size: 34px;
+      line-height: 1.2;
+    }
+
+    .profile .subtitle {
+      margin: 0 0 14px;
+      font-size: 17px;
+      color: var(--muted);
+    }
+
+    .profile p {
+      margin: 8px 0;
+      font-size: 15.5px;
+    }
+
+    .links {
+      margin-top: 12px;
+      font-size: 15px;
+    }
+
+    .links a {
+      margin-right: 12px;
+      white-space: nowrap;
+    }
+
+    .profile-photo {
+      width: 210px;
+      height: 260px;
+      border-radius: 14px;
+      object-fit: cover;
+      border: 1px solid var(--border);
+      background: #f1f5f9;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(8px);
+      z-index: 10;
+      border-bottom: 1px solid var(--border);
+      margin: 0 -22px;
+      padding: 10px 22px;
+    }
+
+    nav a {
+      margin-right: 18px;
+      color: #111827;
+      font-size: 14.5px;
+      font-weight: 600;
+    }
+
+    section {
+      margin-top: 34px;
+    }
+
+    section h2 {
+      font-size: 25px;
+      margin: 0 0 16px;
+      border-bottom: 2px solid #111827;
+      padding-bottom: 6px;
+    }
+
+    section h3 {
+      font-size: 19px;
+      margin: 0 0 8px;
+    }
+
+    .news-list {
+      padding-left: 18px;
+      margin-top: 8px;
+    }
+
+    .news-list li {
+      margin-bottom: 6px;
+    }
+
+    .research-intro {
+      font-size: 16px;
+      color: #333333;
+      margin-bottom: 18px;
+    }
+
+    .overview-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .overview-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    }
+
+    .overview-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+      background: var(--card-hover);
+    }
+
+    .overview-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      background: #e5e7eb;
+    }
+
+    .overview-body {
+      padding: 16px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .overview-tag {
+      display: inline-block;
+      width: fit-content;
+      padding: 3px 9px;
+      margin-bottom: 8px;
+      border-radius: 999px;
+      background: var(--accent-light);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .overview-body p {
+      margin: 6px 0 14px;
+      font-size: 14.5px;
+      color: #3f3f46;
+      flex: 1;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: auto;
+    }
+
+    .pill-button {
+      display: inline-block;
+      padding: 6px 10px;
+      border: 1px solid #cbd5e1;
+      border-radius: 999px;
+      background: #ffffff;
+      color: #1e293b;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .pill-button:hover {
+      background: #e0f2fe;
+      text-decoration: none;
+    }
+
+    .publication {
+      display: grid;
+      grid-template-columns: 210px 1fr;
+      gap: 18px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border);
+      scroll-margin-top: 72px;
+    }
+
+    .publication img {
+      width: 210px;
+      height: 126px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: #f1f5f9;
+    }
+
+    .pub-title {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .authors {
+      color: #333333;
+      font-size: 14.5px;
+      margin-bottom: 4px;
+    }
+
+    .venue {
+      color: #111827;
+      font-size: 14.5px;
+      font-style: italic;
+      margin-bottom: 8px;
+    }
+
+    .pub-links a {
+      display: inline-block;
+      margin-right: 10px;
+      font-size: 13.5px;
+      font-weight: 700;
+    }
+
+    .badge {
+      display: inline-block;
+      margin-left: 6px;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: #3730a3;
+      font-size: 12px;
+      font-style: normal;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .project-card {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+      background: var(--card);
+    }
+
+    .project-card h3 {
+      font-size: 17px;
+      margin-bottom: 6px;
+    }
+
+    .project-card p {
+      margin: 0;
+      color: #3f3f46;
+      font-size: 14.5px;
+    }
+
+    footer {
+      margin-top: 44px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 860px) {
+      header {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-photo {
+        width: 180px;
+        height: 220px;
+      }
+
+      .overview-grid,
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .publication {
+        grid-template-columns: 1fr;
+      }
+
+      .publication img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header id="home">
+      <div class="profile">
+        <h1>Ting Zhang 张婷</h1>
+        <p class="subtitle">Postdoctoral Researcher / Principal Investigator · School of Automation, Beijing Institute of Technology</p>
+        <p>
+          Our group focuses on <strong>interactive decision planning, reinforcement learning, closed-loop simulation, and adaptive control</strong> for intelligent unmanned systems, including autonomous vehicles, autonomous racing cars, mobile robots, and legged robots.
+        </p>
+        <p>
+          We aim to build intelligent agents that can understand complex interactions, reason about risks, make safe and efficient decisions, and adapt to different platforms and environments.
+        </p>
+        <div class="links">
+          <a href="zting_inin@bit.edu.cn">Email</a>
+          <a href="https://scholar.google.com/" target="_blank">Google Scholar</a>
+          <a href="https://github.com/your-github" target="_blank">GitHub</a>
+          <a href="#join">Join Us</a>
+        </div>
+      </div>
+      <div>
+        <img class="profile-photo" src="assets/profile.jpg" alt="Profile photo" />
+      </div>
+    </header>
+
+    <nav>
+      <a href="#research-overview">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#projects">Projects</a>
+      <a href="#team">Team</a>
+      <a href="#join">Join Us</a>
+    </nav>
+
+    <section id="news">
+      <h2>News</h2>
+      <ul class="news-list">
+        <li><strong>Jun. 2026</strong> — One paper accepted by IEEE Intelligent Vehicles Symposium.</li>
+        <li><strong>Nov. 2025</strong> — One paper accepted by IEEE ITSC.</li>
+        <li><strong>2025</strong> — Our autonomous racing team achieved 2nd place in the Silver Group at Abu Dhabi Autonomous Racing League.</li>
+      </ul>
+    </section>
+
+    <section id="research-overview">
+      <h2>Research Overview</h2>
+      <p class="research-intro">
+        Our research is organized around a unified theme: <strong>closed-loop intelligent decision planning for unmanned systems in complex interactive environments</strong>. We study how to construct realistic interactive simulation environments, how to learn safe and robust decision-making policies, and how to achieve stable control and fast adaptation under complex or extreme motion conditions.
+      </p>
+
+      <div class="overview-grid">
+        <article class="overview-card">
+          <img src="assets/research_simulation.jpg" alt="Closed-loop interactive simulation" />
+          <div class="overview-body">
+            <span class="overview-tag">Direction 01</span>
+            <h3>Closed-loop Interactive Simulation and Generative Scenario Construction</h3>
+            <p>
+              We build simulation and generative systems with visual realism, physical consistency, and behavior-level interaction. Representative topics include pedestrian-aware parking simulation, object-conditioned photorealistic generation, interaction logic modeling, and scenario enhancement under adverse visual conditions.
+            </p>
+            <div class="button-row">
+              <a class="pill-button" href="#dynapark-ped">DynaPark-Ped</a>
+              <a class="pill-button" href="#ocgf">OCGF</a>
+              <a class="pill-button" href="#interaction-script">Interaction Logic</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="overview-card">
+          <img src="assets/research_decision.jpg" alt="Interactive decision planning" />
+          <div class="overview-body">
+            <span class="overview-tag">Direction 02</span>
+            <h3>Reasoning-enhanced Decision Planning in Dense Interactive Scenarios</h3>
+            <p>
+              We study prediction-planning coupling, risk-aware reinforcement learning, game-guided multi-agent decision-making, and human/vehicle interaction-aware planning. The goal is to enable autonomous vehicles and robots to make safe, efficient, and socially compatible decisions in dense, uncertain, and mixed cooperative-competitive environments.
+            </p>
+            <div class="button-row">
+              <a class="pill-button" href="#dynamic-voxels">Dynamic Voxels</a>
+              <a class="pill-button" href="#rop-darl">ROP-DARL</a>
+              <a class="pill-button" href="#game-mappo">Game-guided MARL</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="overview-card">
+          <img src="assets/research_control.jpg" alt="Adaptive control and autonomous racing" />
+          <div class="overview-body">
+            <span class="overview-tag">Direction 03</span>
+            <h3>Reinforcement Learning Control and Cross-platform Adaptation</h3>
+            <p>
+              We develop physics-informed reinforcement learning, constrained control, curriculum learning, sim-to-real transfer, and adaptive residual dynamics learning for autonomous racing, autonomous parking, mobile robots, and legged robots. The long-term goal is to build reusable and adaptive control cores for heterogeneous unmanned platforms.
+            </p>
+            <div class="button-row">
+              <a class="pill-button" href="#pac-rl">PAC-RL</a>
+              <a class="pill-button" href="#safe-racing">Safe Racing RL</a>
+              <a class="pill-button" href="#adaptive-controller">Adaptive Controller</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="publications">
+      <h2>Representative Publications</h2>
+
+      <article class="publication" id="dynamic-voxels">
+        <img src="assets/pub_dynamic_voxels.jpg" alt="Dynamic Voxels" />
+        <div>
+          <div class="pub-title">Dynamic Voxels Based on Ego-conditioned Prediction: An Integrated Spatio-temporal Framework for Motion Planning</div>
+          <div class="authors"><strong>Ting Zhang</strong>, et al.</div>
+          <div class="venue">IEEE Transactions on Intelligent Transportation Systems, 2024 <span class="badge">Prediction-Planning</span></div>
+          <div class="pub-links">
+            <a href="#">[PDF]</a>
+            <a href="#">[Code]</a>
+            <a href="#">[Project]</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="publication" id="rop-darl">
+        <img src="assets/pub_rop_darl.jpg" alt="ROP-DARL" />
+        <div>
+          <div class="pub-title">ROP-DARL: Risk-Aware Optimistic-Pessimistic Dual-Actor Reinforcement Learning for Safe Decision-Making of Autonomous Vehicles</div>
+          <div class="authors">Y. Li, X. Li, M. Fu, Y. Yang, <strong>Ting Zhang*</strong></div>
+          <div class="venue">IEEE Intelligent Transportation Systems Conference, 2025 <span class="badge">Safe RL</span></div>
+          <div class="pub-links">
+            <a href="#">[PDF]</a>
+            <a href="#">[Code]</a>
+            <a href="#">[Project]</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="publication" id="game-mappo">
+        <img src="assets/pub_game_mappo.jpg" alt="Game-guided MAPPO" />
+        <div>
+          <div class="pub-title">Game-guided Multi-agent Reinforcement Learning Approach for Vehicle Decision-making in Narrow-road Meeting with Hybrid Interaction</div>
+          <div class="authors"><strong>Ting Zhang</strong>, et al.</div>
+          <div class="venue">Under Review <span class="badge">Game-guided MARL</span></div>
+          <div class="pub-links">
+            <a href="#">[PDF]</a>
+            <a href="#">[Code]</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="publication" id="dynapark-ped">
+        <img src="assets/pub_dynapark_ped.jpg" alt="DynaPark-Ped" />
+        <div>
+          <div class="pub-title">Pedestrian-Aware End-to-End Autonomous Parking via Coupling Regulated Multi-Task Learning</div>
+          <div class="authors"><strong>Ting Zhang*</strong>, et al.</div>
+          <div class="venue">Under Review <span class="badge">Pedestrian Interaction</span></div>
+          <div class="pub-links">
+            <a href="#">[PDF]</a>
+            <a href="#">[Dataset]</a>
+            <a href="#">[Project]</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="publication" id="safe-racing">
+        <img src="assets/pub_safe_racing.jpg" alt="Safe Autonomous Racing" />
+        <div>
+          <div class="pub-title">Enhancing Safety in Autonomous Racing with Constrained Reinforcement Learning</div>
+          <div class="authors">Kai Yu, et al.</div>
+          <div class="venue">IEEE Robotics and Automation Letters, 2025 <span class="badge">Constrained RL</span></div>
+          <div class="pub-links">
+            <a href="#">[PDF]</a>
+            <a href="#">[Code]</a>
+            <a href="#">[Video]</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="publication" id="pac-rl">
+        <img src="assets/pub_pac_rl.jpg" alt="PAC-RL" />
+        <div>
+          <div class="pub-title">PAC-RL: Physics-Adaptive Curriculum Reinforcement Learning for Safe Extreme-Speed Autonomous Racing</div>
+          <div class="authors"><strong>Ting Zhang*</strong>, et al.</div>
+          <div class="venue">Under Review <span class="badge">Autonomous Racing</span></div>
+          <div class="pub-links">
+            <a href="#">[PDF]</a>
+            <a href="#">[Code]</a>
+            <a href="#">[Project]</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="publication" id="rs-rl">
+        <img src="assets/pub_rs_rl.jpg" alt="RS-RL Parking" />
+        <div>
+          <div class="pub-title">Learnable Reeds-Shepp Cost Map-Guided Dual-Critic Reinforcement Learning for Generalizable Autonomous Parking</div>
+          <div class="authors"><strong>Ting Zhang*</strong>, et al.</div>
+          <div class="venue">Under Review <span class="badge">Autonomous Parking</span></div>
+          <div class="pub-links">
+            <a href="#">[PDF]</a>
+            <a href="#">[Code]</a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section id="future-work">
+      <h2>Ongoing and Future Research</h2>
+
+      <article class="publication" id="ocgf">
+        <img src="assets/future_ocgf.jpg" alt="OCGF" />
+        <div>
+          <div class="pub-title">Object-Conditioned Generative Field for Physically Consistent Scenario Editing</div>
+          <div class="authors">Ongoing Project</div>
+          <div class="venue">Closed-loop simulation · CARLA · NuRec · Object-level photorealistic generation</div>
+          <p>
+            We aim to convert simulator assets, rigid-body motion, and illumination priors into a differentiable local generator that produces appearance residuals, shadows, and contact-consistent details within object ROIs.
+          </p>
+        </div>
+      </article>
+
+      <article class="publication" id="interaction-script">
+        <img src="assets/future_interaction_script.jpg" alt="Interaction logic" />
+        <div>
+          <div class="pub-title">Causal Interaction Logic Modeling for Vehicle-Pedestrian Scenario Generation</div>
+          <div class="authors">Ongoing Project</div>
+          <div class="venue">VLM-assisted annotation · Interaction scripts · Behavior-realistic simulation</div>
+          <p>
+            We study how to describe, annotate, and generate realistic vehicle-pedestrian interaction processes, including vehicle motion states, pedestrian actions, body movements, and causal response logic.
+          </p>
+        </div>
+      </article>
+
+      <article class="publication" id="adaptive-controller">
+        <img src="assets/future_adaptive_controller.jpg" alt="Adaptive controller" />
+        <div>
+          <div class="pub-title">Cross-platform Universal Adaptive Controller for Heterogeneous Unmanned Systems</div>
+          <div class="authors">Ongoing Project</div>
+          <div class="venue">Base dynamics · Online residual learning · Meta adaptation · Hardware acceleration</div>
+          <p>
+            We develop a reusable control core that combines prior dynamics, online residual modeling, meta-learning, and customized computing hardware for fast adaptation across heterogeneous robots and unmanned platforms.
+          </p>
+        </div>
+      </article>
+    </section>
+
+    <section id="projects">
+      <h2>Selected Projects</h2>
+      <div class="project-grid">
+        <div class="project-card">
+          <h3>Causal Reasoning for Closed-loop Decision-making under Dynamic Occlusion</h3>
+          <p>Postdoctoral Science Foundation project focusing on spatio-temporal causal reasoning, counterfactual inference, asymmetric-information games, and closed-loop decision-making for autonomous vehicles.</p>
+        </div>
+        <div class="project-card">
+          <h3>Generative Reasoning for Closed-loop Decision-making in Dense Interactive Scenarios</h3>
+          <p>National postdoctoral funding project focusing on causal diffusion world modeling, reasoning-coupled game decision-making, and virtual-real cross-domain adaptation.</p>
+        </div>
+        <div class="project-card">
+          <h3>Reasoning-driven Self-supervised Decision-making in Dynamic Occlusion</h3>
+          <p>Youth fund project focusing on multimodal reconstruction, spatio-temporal causal chains, counterfactual scenario reasoning, and self-supervised credit assignment.</p>
+        </div>
+        <div class="project-card">
+          <h3>Intelligent Scene Recognition and Image Enhancement</h3>
+          <p>Industry project focusing on blind-spot image enhancement, adverse-weather restoration, collision-risk object detection, behavior prediction, and road-condition recognition.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="team">
+      <h2>Team</h2>
+      <p>
+        We are building a research group for students interested in autonomous driving, robotics, reinforcement learning, closed-loop simulation, world models, and adaptive control. Team member information can be added here.
+      </p>
+    </section>
+
+    <section id="join">
+      <h2>Join Us</h2>
+      <p>
+        We welcome motivated undergraduate, master, PhD, and visiting students who are interested in intelligent unmanned systems, autonomous driving, robotics, reinforcement learning, simulation, and control. If you are interested in joining us, please send your CV, research interests, and representative projects to <a href="mailto:your_email@bit.edu.cn">your_email@bit.edu.cn</a>.
+      </p>
+    </section>
+
+    <footer>
+      <p>© 2026 Ting Zhang. Last updated: May 2026. This website is hosted by GitHub Pages.</p>
+    </footer>
+  </div>
+</body>
+</html>
