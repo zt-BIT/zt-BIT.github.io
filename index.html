@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ting Zhang | Interactive Decision Planning Lab</title>
+  <title>Interactive Decision Planning Group | BIT</title>
   <style>
     :root {
       --bg: #ffffff;
@@ -139,6 +139,16 @@
       margin-bottom: 18px;
     }
 
+    .pipeline {
+      margin: 18px 0 8px;
+      padding: 14px 16px;
+      border-left: 4px solid var(--accent);
+      background: var(--accent-light);
+      border-radius: 12px;
+      font-weight: 700;
+      color: #134e4a;
+    }
+
     .overview-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -217,6 +227,47 @@
     .pill-button:hover {
       background: #e0f2fe;
       text-decoration: none;
+    }
+
+    .topic-card {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 18px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border);
+      scroll-margin-top: 72px;
+    }
+
+    .topic-card img {
+      width: 220px;
+      height: 132px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: #f1f5f9;
+    }
+
+    .topic-title {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .topic-meta {
+      color: #111827;
+      font-size: 14.5px;
+      font-style: italic;
+      margin-bottom: 8px;
+    }
+
+    .topic-card p {
+      margin: 6px 0;
+      font-size: 14.5px;
+      color: #3f3f46;
+    }
+
+    .topic-card strong {
+      color: #111827;
     }
 
     .publication {
@@ -321,11 +372,13 @@
         grid-template-columns: 1fr;
       }
 
-      .publication {
+      .publication,
+      .topic-card {
         grid-template-columns: 1fr;
       }
 
-      .publication img {
+      .publication img,
+      .topic-card img {
         width: 100%;
         height: auto;
       }
@@ -336,16 +389,16 @@
   <div class="container">
     <header id="home">
       <div class="profile">
-        <h1>Ting Zhang 张婷</h1>
-        <p class="subtitle">Postdoctoral Researcher / Principal Investigator · School of Automation, Beijing Institute of Technology</p>
+        <h1>Interactive Decision Planning Group</h1>
+        <p class="subtitle">复杂动态交互场景下无人平台闭环决策规划方法研究 · Beijing Institute of Technology</p>
         <p>
-          Our group focuses on <strong>interactive decision planning, reinforcement learning, closed-loop simulation, and adaptive control</strong> for intelligent unmanned systems, including autonomous vehicles, autonomous racing cars, mobile robots, and legged robots.
+          Our group studies <strong>closed-loop decision planning for unmanned platforms in complex dynamic interactive scenarios</strong>, including autonomous driving, autonomous parking, autonomous racing, mobile robots, and legged robots.
         </p>
         <p>
-          We aim to build intelligent agents that can understand complex interactions, reason about risks, make safe and efficient decisions, and adapt to different platforms and environments.
+          We focus on the full research chain of <strong>interactive scenario construction, risk prediction and environmental reasoning, reinforcement learning decision planning, complex motion control, and sim-to-real validation</strong>.
         </p>
         <div class="links">
-          <a href="zting_inin@bit.edu.cn">Email</a>
+          <a href="mailto:your_email@bit.edu.cn">Email</a>
           <a href="https://scholar.google.com/" target="_blank">Google Scholar</a>
           <a href="https://github.com/your-github" target="_blank">GitHub</a>
           <a href="#join">Join Us</a>
@@ -358,6 +411,7 @@
 
     <nav>
       <a href="#research-overview">Research</a>
+      <a href="#topics">Topics</a>
       <a href="#publications">Publications</a>
       <a href="#projects">Projects</a>
       <a href="#team">Team</a>
@@ -368,66 +422,252 @@
       <h2>News</h2>
       <ul class="news-list">
         <li><strong>Jun. 2026</strong> — One paper accepted by IEEE Intelligent Vehicles Symposium.</li>
-        <li><strong>Nov. 2025</strong> — One paper accepted by IEEE ITSC.</li>
-        <li><strong>2025</strong> — Our autonomous racing team achieved 2nd place in the Silver Group at Abu Dhabi Autonomous Racing League.</li>
+        <li><strong>Nov. 2025</strong> — One paper accepted by IEEE Intelligent Transportation Systems Conference.</li>
+        <li><strong>2025</strong> — Our autonomous racing team achieved 2nd place in the Silver Group at the Abu Dhabi Autonomous Racing League, the best historical result for Chinese teams.</li>
       </ul>
     </section>
 
     <section id="research-overview">
       <h2>Research Overview</h2>
       <p class="research-intro">
-        Our research is organized around a unified theme: <strong>closed-loop intelligent decision planning for unmanned systems in complex interactive environments</strong>. We study how to construct realistic interactive simulation environments, how to learn safe and robust decision-making policies, and how to achieve stable control and fast adaptation under complex or extreme motion conditions.
+        We aim to build a systematic framework for <strong>closed-loop intelligent decision planning of unmanned platforms in complex dynamic interactive scenarios</strong>. The research addresses key challenges such as insufficient interactive data, unrealistic behavior logic in simulation, difficult risk prediction, limited policy generalization, unstable control under complex motion conditions, and sim-to-real deployment gaps.
       </p>
+      <div class="pipeline">
+        Interactive Scenario Construction → Risk Prediction and Environmental Reasoning → Reinforcement Learning Decision Planning → Complex Motion Control → Sim-to-Real Validation
+      </div>
 
       <div class="overview-grid">
         <article class="overview-card">
           <img src="assets/research_simulation.jpg" alt="Closed-loop interactive simulation" />
           <div class="overview-body">
             <span class="overview-tag">Direction 01</span>
-            <h3>Closed-loop Interactive Simulation and Generative Scenario Construction</h3>
+            <h3>Closed-loop Interactive Simulation and Scenario Generation</h3>
             <p>
-              We build simulation and generative systems with visual realism, physical consistency, and behavior-level interaction. Representative topics include pedestrian-aware parking simulation, object-conditioned photorealistic generation, interaction logic modeling, and scenario enhancement under adverse visual conditions.
+              We construct simulation and generative systems with behavioral plausibility, visual realism, physical consistency, and editability. This direction provides high-quality training and validation environments for downstream risk reasoning, decision learning, and sim-to-real transfer.
             </p>
             <div class="button-row">
-              <a class="pill-button" href="#dynapark-ped">DynaPark-Ped</a>
-              <a class="pill-button" href="#ocgf">OCGF</a>
-              <a class="pill-button" href="#interaction-script">Interaction Logic</a>
+              <a class="pill-button" href="#dynapark-ped-topic">DynaPark-Ped</a>
+              <a class="pill-button" href="#ocgf-topic">Digital Assets</a>
+              <a class="pill-button" href="#interaction-script-topic">Interaction Scripts</a>
+              <a class="pill-button" href="#image-enhancement-topic">Image Enhancement</a>
             </div>
           </div>
         </article>
 
         <article class="overview-card">
-          <img src="assets/research_decision.jpg" alt="Interactive decision planning" />
+          <img src="assets/research_decision.jpg" alt="Reasoning-enhanced decision planning" />
           <div class="overview-body">
             <span class="overview-tag">Direction 02</span>
-            <h3>Reasoning-enhanced Decision Planning in Dense Interactive Scenarios</h3>
+            <h3>Reasoning-enhanced Decision Planning in Dense Interactions</h3>
             <p>
-              We study prediction-planning coupling, risk-aware reinforcement learning, game-guided multi-agent decision-making, and human/vehicle interaction-aware planning. The goal is to enable autonomous vehicles and robots to make safe, efficient, and socially compatible decisions in dense, uncertain, and mixed cooperative-competitive environments.
+              We study how autonomous vehicles and robots can make safe, efficient, robust, and interpretable decisions under multi-agent interaction, incomplete information, uncertain risk, and mixed cooperative-competitive relationships.
             </p>
             <div class="button-row">
-              <a class="pill-button" href="#dynamic-voxels">Dynamic Voxels</a>
-              <a class="pill-button" href="#rop-darl">ROP-DARL</a>
-              <a class="pill-button" href="#game-mappo">Game-guided MARL</a>
+              <a class="pill-button" href="#prediction-planning-topic">Prediction-Planning</a>
+              <a class="pill-button" href="#game-marl-topic">Game-guided MARL</a>
+              <a class="pill-button" href="#risk-rl-topic">Risk-aware RL</a>
+              <a class="pill-button" href="#memory-topic">Memory Driving</a>
             </div>
           </div>
         </article>
 
         <article class="overview-card">
-          <img src="assets/research_control.jpg" alt="Adaptive control and autonomous racing" />
+          <img src="assets/research_control.jpg" alt="RL control and adaptation" />
           <div class="overview-body">
             <span class="overview-tag">Direction 03</span>
-            <h3>Reinforcement Learning Control and Cross-platform Adaptation</h3>
+            <h3>RL Control and Cross-platform Adaptation</h3>
             <p>
-              We develop physics-informed reinforcement learning, constrained control, curriculum learning, sim-to-real transfer, and adaptive residual dynamics learning for autonomous racing, autonomous parking, mobile robots, and legged robots. The long-term goal is to build reusable and adaptive control cores for heterogeneous unmanned platforms.
+              We develop physics-informed reinforcement learning, constrained control, autonomous racing algorithms, RS-guided parking, universal adaptive controllers, and morphology-aware skill transfer for high-speed, narrow-space, nonlinear, and heterogeneous platforms.
             </p>
             <div class="button-row">
-              <a class="pill-button" href="#pac-rl">PAC-RL</a>
-              <a class="pill-button" href="#safe-racing">Safe Racing RL</a>
-              <a class="pill-button" href="#adaptive-controller">Adaptive Controller</a>
+              <a class="pill-button" href="#pac-rl-topic">PAC-RL</a>
+              <a class="pill-button" href="#racing-deploy-topic">Racing Deployment</a>
+              <a class="pill-button" href="#rs-parking-topic">RS Parking</a>
+              <a class="pill-button" href="#adaptive-controller-topic">Adaptive Control</a>
             </div>
           </div>
         </article>
       </div>
+    </section>
+
+    <section id="topics">
+      <h2>Research Topics</h2>
+
+      <h3>Direction 01 · Closed-loop Interactive Simulation and Scenario Generation</h3>
+
+      <article class="topic-card" id="dynapark-ped-topic">
+        <img src="assets/topic_dynapark_ped.jpg" alt="Pedestrian-vehicle interactive parking" />
+        <div>
+          <div class="topic-title">Pedestrian-Vehicle Dynamic Interactive Parking Scenario Construction</div>
+          <div class="topic-meta">DynaPark-Ped · Pedestrian-aware autonomous parking · Closed-loop validation</div>
+          <p><strong>Brief:</strong> We construct pedestrian-vehicle interactive parking scenarios and the DynaPark-Ped dataset, where pedestrians can respond to vehicle motion. The dataset provides surround-view images, LiDAR, target states, bounding boxes, and other multimodal annotations for closed-loop dynamic parking evaluation.</p>
+          <p><strong>Role:</strong> This topic provides the foundational interactive simulation environment for studying autonomous parking under dynamic pedestrian disturbance.</p>
+        </div>
+      </article>
+
+      <article class="topic-card" id="ocgf-topic">
+        <img src="assets/topic_ocgf.jpg" alt="Object-conditioned generative field" />
+        <div>
+          <div class="topic-title">Editable Closed-loop Scenario Generation Based on Digital Assets</div>
+          <div class="topic-meta">CARLA · NuRec · Object-Conditioned Generative Field · Photorealistic scenario editing</div>
+          <p><strong>Brief:</strong> We study object-conditioned generative fields for CARLA and NuRec-based scene editing. By using asset geometry, rigid-body motion, illumination priors, and reconstructed backgrounds, the model generates local appearance residuals, shadows, and contact-consistent details within object ROIs.</p>
+          <p><strong>Role:</strong> This topic addresses how realistic closed-loop scenarios can be edited, generated, and physically integrated with reconstructed environments.</p>
+        </div>
+      </article>
+
+      <article class="topic-card" id="interaction-script-topic">
+        <img src="assets/topic_interaction_script.jpg" alt="Interaction causal logic" />
+        <div>
+          <div class="topic-title">Interaction Causal Logic Modeling and Script-driven Scenario Generation</div>
+          <div class="topic-meta">VLM-assisted annotation · Causal interaction logic · Behavior-realistic simulation</div>
+          <p><strong>Brief:</strong> We model causal chains among vehicle actions, pedestrian responses, body movements, facial expressions, and behavioral intentions through vision-language models, statistical modeling, and self-correction mechanisms. The resulting editable scripts drive behavior-realistic dynamic agents in closed-loop simulators.</p>
+          <p><strong>Role:</strong> This topic provides the behavior-level realism needed for pedestrians and vehicles to react like real-world agents in simulation.</p>
+        </div>
+      </article>
+
+      <article class="topic-card" id="image-enhancement-topic">
+        <img src="assets/topic_image_enhancement.jpg" alt="Scene recognition and image enhancement" />
+        <div>
+          <div class="topic-title">Intelligent Scene Recognition and Image Enhancement</div>
+          <div class="topic-meta">Low-light enhancement · Rain/fog removal · Glare suppression · Risk object detection</div>
+          <p><strong>Brief:</strong> We develop algorithms for blind-spot image enhancement, low-light denoising, dehazing, deraining, glare suppression, collision-risk object detection, dynamic behavior prediction, and road condition recognition under adverse visual conditions.</p>
+          <p><strong>Role:</strong> This topic supports robust perception front-ends for closed-loop simulation, risk reasoning, and real vehicle deployment.</p>
+        </div>
+      </article>
+
+      <h3>Direction 02 · Reasoning-enhanced Decision Planning in Dense Interactions</h3>
+
+      <article class="topic-card" id="prediction-planning-topic">
+        <img src="assets/topic_prediction_planning.jpg" alt="Prediction-planning coupling" />
+        <div>
+          <div class="topic-title">Prediction-Planning Coupled Interactive Decision Framework</div>
+          <div class="topic-meta">Ego-conditioned prediction · Dynamic voxels · Closed-loop predictive planning</div>
+          <p><strong>Brief:</strong> We study ego-conditioned interactive prediction and dynamic voxel-based planning. Ego candidate maneuvers are used as conditions for predicting other agents, while predicted futures are converted into spatio-temporal dynamic voxels for risk-aware trajectory evaluation and planning guidance.</p>
+          <p><strong>Role:</strong> This topic shifts autonomous driving from serial “prediction-then-planning” to closed-loop “prediction-planning mutual feedback”.</p>
+        </div>
+      </article>
+
+      <article class="topic-card" id="game-marl-topic">
+        <img src="assets/topic_game_marl.jpg" alt="Game-guided MARL" />
+        <div>
+          <div class="topic-title">Game-guided Multi-agent Interactive Decision-making</div>
+          <div class="topic-meta">Stackelberg game · Priority reasoning · MAPPO · Mixed traffic interaction</div>
+          <p><strong>Brief:</strong> We introduce Stackelberg game priors into multi-agent reinforcement learning for strong-conflict scenarios such as narrow-road meeting. Priority estimation identifies leader/follower roles, which condition MAPPO policies. Preference-IDM mixed traffic and self-play adversarial learning are used to improve robustness.</p>
+          <p><strong>Role:</strong> This topic addresses negotiation, yielding, and deadlock avoidance in multi-agent conflict scenarios.</p>
+        </div>
+      </article>
+
+      <article class="topic-card" id="risk-rl-topic">
+        <img src="assets/topic_risk_rl.jpg" alt="Risk-aware safe RL" />
+        <div>
+          <div class="topic-title">Risk-aware Safe Reinforcement Learning Decision-making</div>
+          <div class="topic-meta">Optimistic-pessimistic dual actors · Risk field · Human-in-the-loop adversarial disturbance</div>
+          <p><strong>Brief:</strong> We develop risk-aware optimistic-pessimistic dual-actor reinforcement learning. Predicted trajectories and risk fields identify high-risk modes; the optimistic actor pursues efficiency, while the pessimistic actor focuses on safety. Adaptive fusion generates final decisions and is evaluated under adversarial human takeover.</p>
+          <p><strong>Role:</strong> This topic balances safety and efficiency in complex interaction without becoming overly aggressive or overly conservative.</p>
+        </div>
+      </article>
+
+      <article class="topic-card" id="human-robot-topic">
+        <img src="assets/topic_human_robot.jpg" alt="Human-vehicle and human-robot interaction" />
+        <div>
+          <div class="topic-title">Task-driven Decision-making for Human-Vehicle and Human-Robot Interaction</div>
+          <div class="topic-meta">Pedestrian-aware parking · User-preference navigation · Embodied interactive decision-making</div>
+          <p><strong>Brief:</strong> We integrate pedestrian prediction, visual cues, planning control, and closed-loop validation into dynamic parking tasks. We further extend from traffic-rule/risk-driven decisions to embodied robot decisions guided by user language, behavior preferences, and task requirements.</p>
+          <p><strong>Role:</strong> This topic expands decision planning from vehicle-vehicle interaction to human-vehicle and human-robot task collaboration.</p>
+        </div>
+      </article>
+
+      <article class="topic-card" id="kg-llm-topic">
+        <img src="assets/topic_kg_llm.jpg" alt="Knowledge graph and LLM risk cognition" />
+        <div>
+          <div class="topic-title">Dangerous Scenario Cognition with Knowledge Graphs and Large Language Models</div>
+          <div class="topic-meta">Multimodal perception · Semantic graph · Memory recall · LLM reasoning</div>
+          <p><strong>Brief:</strong> We build a danger cognition system that integrates multimodal perception, semantic knowledge graphs, memory recall, and large-model reasoning. It simulates the human process of observing, associating, recalling, and judging to infer invisible hazards and potential conflict chains.</p>
+          <p><strong>Role:</strong> This topic moves risk prediction from purely data-driven correlation toward knowledge-enhanced reasoning and counterfactual cognition.</p>
+        </div>
+      </article>
+
+      <article class="topic-card" id="memory-topic">
+        <img src="assets/topic_memory_driving.jpg" alt="Memory-enhanced autonomous driving" />
+        <div>
+          <div class="topic-title">Memory-enhanced Autonomous Driving Decision Planning</div>
+          <div class="topic-meta">Geo-Risk Memory Graph · Spatial risk prior · Dynamic risk evolution · Driving experience retrieval</div>
+          <p><strong>Brief:</strong> We study Geo-Risk Memory Graphs that unify road structure, geographic environment, historical risk events, dynamic interaction evolution, and executable driving experience. The goal is to retrieve not only similar trajectories, but also similar geographic risk structures and effective handling strategies.</p>
+          <p><strong>Role:</strong> This topic enables autonomous vehicles to remember dangerous places, recall past experience, and generalize risk-aware decisions across scenarios.</p>
+        </div>
+      </article>
+
+      <article class="topic-card" id="photoagent-topic">
+        <img src="assets/topic_photoagent.jpg" alt="PhotoAgent" />
+        <div>
+          <div class="topic-title">Language-guided Humanoid Portrait Photography via Viewpoint Policy Learning</div>
+          <div class="topic-meta">PhotoAgent · Composition constraints · Humanoid robot · User preference</div>
+          <p><strong>Brief:</strong> We translate user photography instructions into composition constraints and learn viewpoint selection, body posture, and visual micro-adjustment policies for humanoid robots. The robot uses camera images, human position, depth, and candidate viewpoints to capture photos satisfying user preference and aesthetic requirements.</p>
+          <p><strong>Role:</strong> This topic extends decision planning from navigation and collision avoidance to language-guided, preference-aware embodied service tasks.</p>
+        </div>
+      </article>
+
+      <h3>Direction 03 · Reinforcement Learning Control and Cross-platform Adaptation</h3>
+
+      <article class="topic-card" id="pac-rl-topic">
+        <img src="assets/topic_pac_rl.jpg" alt="PAC-RL" />
+        <div>
+          <div class="topic-title">Physics-adaptive Curriculum Reinforcement Learning for Extreme-speed Racing</div>
+          <div class="topic-meta">Autonomous racing · Curvature-aware reward · TTC switching · Progressive curriculum</div>
+          <p><strong>Brief:</strong> We study Physics-Adaptive Curriculum Reinforcement Learning for extreme-speed autonomous racing. The method integrates geometry-enhanced states, curvature-aware physics-adaptive rewards, TTC-triggered safety switching, and progressive curriculum learning from stable driving to high-speed cornering and adversarial overtaking.</p>
+          <p><strong>Role:</strong> This topic demonstrates stable reinforcement learning control under high-speed, high-dynamic, and high-risk motion conditions.</p>
+        </div>
+      </article>
+
+      <article class="topic-card" id="racing-deploy-topic">
+        <img src="assets/topic_racing_deploy.jpg" alt="Autonomous racing deployment" />
+        <div>
+          <div class="topic-title">Robust Localization and Stable Control for Autonomous Racing Deployment</div>
+          <div class="topic-meta">LiDAR localization · RMPC-F control · Abu Dhabi Autonomous Racing League</div>
+          <p><strong>Brief:</strong> We develop LiDAR-centered real-time robust localization and RMPC-F-based stable control for high-speed autonomous racing. The system supports high-frequency localization, trajectory tracking, velocity control, and robust deployment on real racing platforms.</p>
+          <p><strong>Role:</strong> This topic provides the real-world deployment and engineering validation layer for autonomous racing algorithms.</p>
+        </div>
+      </article>
+
+      <article class="topic-card" id="rs-parking-topic">
+        <img src="assets/topic_rs_parking.jpg" alt="RS-guided parking" />
+        <div>
+          <div class="topic-title">RS Cost Field-guided Reinforcement Learning for Autonomous Parking</div>
+          <div class="topic-meta">Reeds-Shepp prior · Learnable cost field · Dual critic · Narrow-space parking</div>
+          <p><strong>Brief:</strong> We build learnable Reeds-Shepp cost fields to encode vehicle kinematic feasibility and environment-dependent maneuverability. The learned RS prior is integrated into reward design and dual-critic reinforcement learning to improve parking success, compactness, and generalization in parallel, vertical, slanted, and narrow parking scenarios.</p>
+          <p><strong>Role:</strong> This topic addresses efficient policy learning under strong kinematic constraints and narrow-space motion requirements.</p>
+        </div>
+      </article>
+
+      <article class="topic-card" id="safe-control-topic">
+        <img src="assets/topic_safe_control.jpg" alt="Safe constrained RL control" />
+        <div>
+          <div class="topic-title">Safe Constrained Reinforcement Learning for Complex Motion Platforms</div>
+          <div class="topic-meta">CMDP · CPO · PPO-Lagrangian · Vehicle dynamics shield</div>
+          <p><strong>Brief:</strong> We formulate autonomous racing and complex motion control as constrained Markov decision processes and introduce constrained reinforcement learning algorithms with vehicle-dynamics-based safety shields. Unsafe speed commands are projected to safe boundaries to coordinate safety and performance.</p>
+          <p><strong>Role:</strong> This topic provides safety-control foundations for later racing, high-speed deployment, and complex motion tasks.</p>
+        </div>
+      </article>
+
+      <article class="topic-card" id="adaptive-controller-topic">
+        <img src="assets/topic_adaptive_controller.jpg" alt="Universal adaptive controller" />
+        <div>
+          <div class="topic-title">Cross-platform Universal Adaptive Controller</div>
+          <div class="topic-meta">Base dynamics · Online residual learning · Meta adaptation · Hardware acceleration</div>
+          <p><strong>Brief:</strong> We study a software-hardware integrated universal adaptive controller that combines base dynamics, online residual learning, meta-learning-based fast adaptation, and dedicated computing hardware. The goal is to compensate for payload variation, model changes, environmental disturbance, and heterogeneous platform differences with low latency.</p>
+          <p><strong>Role:</strong> This topic extends from single-platform vehicle control to reusable, adaptive, and cross-platform control cores for heterogeneous unmanned systems.</p>
+        </div>
+      </article>
+
+      <article class="topic-card" id="skill-transfer-topic">
+        <img src="assets/topic_skill_transfer.jpg" alt="Sim-to-real and morphology skill transfer" />
+        <div>
+          <div class="topic-title">Adaptive Control for Sim-to-real, Cross-platform, and Cross-morphology Transfer</div>
+          <div class="topic-meta">Meta-RL · Skill distillation · Universal-specific skill disentanglement · TRON1 morphology transfer</div>
+          <p><strong>Brief:</strong> We study meta reinforcement learning, skill distillation, and universal-specific skill disentanglement for transferring control experience across simulators, real platforms, and robot morphologies. Universal skills capture task-relevant structures, while morphology-specific skills adapt contact, support, friction, and dynamics strategies.</p>
+          <p><strong>Role:</strong> This topic answers how motion experience learned by one platform or morphology can be efficiently absorbed and reconstructed by another.</p>
+        </div>
+      </article>
     </section>
 
     <section id="publications">
@@ -439,11 +679,7 @@
           <div class="pub-title">Dynamic Voxels Based on Ego-conditioned Prediction: An Integrated Spatio-temporal Framework for Motion Planning</div>
           <div class="authors"><strong>Ting Zhang</strong>, et al.</div>
           <div class="venue">IEEE Transactions on Intelligent Transportation Systems, 2024 <span class="badge">Prediction-Planning</span></div>
-          <div class="pub-links">
-            <a href="#">[PDF]</a>
-            <a href="#">[Code]</a>
-            <a href="#">[Project]</a>
-          </div>
+          <div class="pub-links"><a href="#">[PDF]</a><a href="#">[Code]</a><a href="#">[Project]</a></div>
         </div>
       </article>
 
@@ -452,39 +688,18 @@
         <div>
           <div class="pub-title">ROP-DARL: Risk-Aware Optimistic-Pessimistic Dual-Actor Reinforcement Learning for Safe Decision-Making of Autonomous Vehicles</div>
           <div class="authors">Y. Li, X. Li, M. Fu, Y. Yang, <strong>Ting Zhang*</strong></div>
-          <div class="venue">IEEE Intelligent Transportation Systems Conference, 2025 <span class="badge">Safe RL</span></div>
-          <div class="pub-links">
-            <a href="#">[PDF]</a>
-            <a href="#">[Code]</a>
-            <a href="#">[Project]</a>
-          </div>
+          <div class="venue">IEEE Intelligent Transportation Systems Conference, 2025 <span class="badge">Risk-aware RL</span></div>
+          <div class="pub-links"><a href="#">[PDF]</a><a href="#">[Code]</a><a href="#">[Project]</a></div>
         </div>
       </article>
 
-      <article class="publication" id="game-mappo">
-        <img src="assets/pub_game_mappo.jpg" alt="Game-guided MAPPO" />
+      <article class="publication" id="rs-iv">
+        <img src="assets/pub_rs_iv.jpg" alt="RS integrated RL" />
         <div>
-          <div class="pub-title">Game-guided Multi-agent Reinforcement Learning Approach for Vehicle Decision-making in Narrow-road Meeting with Hybrid Interaction</div>
-          <div class="authors"><strong>Ting Zhang</strong>, et al.</div>
-          <div class="venue">Under Review <span class="badge">Game-guided MARL</span></div>
-          <div class="pub-links">
-            <a href="#">[PDF]</a>
-            <a href="#">[Code]</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="publication" id="dynapark-ped">
-        <img src="assets/pub_dynapark_ped.jpg" alt="DynaPark-Ped" />
-        <div>
-          <div class="pub-title">Pedestrian-Aware End-to-End Autonomous Parking via Coupling Regulated Multi-Task Learning</div>
-          <div class="authors"><strong>Ting Zhang*</strong>, et al.</div>
-          <div class="venue">Under Review <span class="badge">Pedestrian Interaction</span></div>
-          <div class="pub-links">
-            <a href="#">[PDF]</a>
-            <a href="#">[Dataset]</a>
-            <a href="#">[Project]</a>
-          </div>
+          <div class="pub-title">Tackling Narrow-Space Parallel Parking: Reeds-Shepp-integrated Reinforcement Learning with Learnable Cost Heuristic</div>
+          <div class="authors">Shuaicong Yang, Mengying Ruan, Qi Huang, Yi Yang, <strong>Ting Zhang*</strong>, Mengyin Fu</div>
+          <div class="venue">IEEE Intelligent Vehicles Symposium, 2026 <span class="badge">RS-guided Parking</span></div>
+          <div class="pub-links"><a href="#">[PDF]</a><a href="#">[Code]</a><a href="#">[Project]</a></div>
         </div>
       </article>
 
@@ -494,25 +709,37 @@
           <div class="pub-title">Enhancing Safety in Autonomous Racing with Constrained Reinforcement Learning</div>
           <div class="authors">Kai Yu, et al.</div>
           <div class="venue">IEEE Robotics and Automation Letters, 2025 <span class="badge">Constrained RL</span></div>
-          <div class="pub-links">
-            <a href="#">[PDF]</a>
-            <a href="#">[Code]</a>
-            <a href="#">[Video]</a>
-          </div>
+          <div class="pub-links"><a href="#">[PDF]</a><a href="#">[Code]</a><a href="#">[Video]</a></div>
         </div>
       </article>
 
-      <article class="publication" id="pac-rl">
-        <img src="assets/pub_pac_rl.jpg" alt="PAC-RL" />
+      <article class="publication" id="game-mappo">
+        <img src="assets/pub_game_mappo.jpg" alt="Game-guided MAPPO" />
         <div>
-          <div class="pub-title">PAC-RL: Physics-Adaptive Curriculum Reinforcement Learning for Safe Extreme-Speed Autonomous Racing</div>
+          <div class="pub-title">Game-guided Multi-agent Reinforcement Learning Approach for Vehicle Decision-making in Narrow-road Meeting with Hybrid Interaction</div>
+          <div class="authors"><strong>Ting Zhang</strong>, et al.</div>
+          <div class="venue">Under Review <span class="badge">Game-guided MARL</span></div>
+          <div class="pub-links"><a href="#">[PDF]</a><a href="#">[Code]</a></div>
+        </div>
+      </article>
+
+      <article class="publication" id="adversarial-rl">
+        <img src="assets/pub_adversarial_rl.jpg" alt="Adversarial resilient decision-making" />
+        <div>
+          <div class="pub-title">Adversarial Resilient Decision-Making for Autonomous Driving: Dual Actor-Fused Reinforcement Learning Approach with Graph-based Prediction</div>
           <div class="authors"><strong>Ting Zhang*</strong>, et al.</div>
-          <div class="venue">Under Review <span class="badge">Autonomous Racing</span></div>
-          <div class="pub-links">
-            <a href="#">[PDF]</a>
-            <a href="#">[Code]</a>
-            <a href="#">[Project]</a>
-          </div>
+          <div class="venue">Under Review <span class="badge">Adversarial Robustness</span></div>
+          <div class="pub-links"><a href="#">[PDF]</a><a href="#">[Code]</a></div>
+        </div>
+      </article>
+
+      <article class="publication" id="dynapark-ped">
+        <img src="assets/pub_dynapark_ped.jpg" alt="DynaPark-Ped" />
+        <div>
+          <div class="pub-title">Pedestrian-Aware End-to-End Autonomous Parking via Coupling Regulated Multi-Task Learning</div>
+          <div class="authors"><strong>Ting Zhang*</strong>, et al.</div>
+          <div class="venue">Under Review <span class="badge">Pedestrian Interaction</span></div>
+          <div class="pub-links"><a href="#">[PDF]</a><a href="#">[Dataset]</a><a href="#">[Project]</a></div>
         </div>
       </article>
 
@@ -522,50 +749,27 @@
           <div class="pub-title">Learnable Reeds-Shepp Cost Map-Guided Dual-Critic Reinforcement Learning for Generalizable Autonomous Parking</div>
           <div class="authors"><strong>Ting Zhang*</strong>, et al.</div>
           <div class="venue">Under Review <span class="badge">Autonomous Parking</span></div>
-          <div class="pub-links">
-            <a href="#">[PDF]</a>
-            <a href="#">[Code]</a>
-          </div>
-        </div>
-      </article>
-    </section>
-
-    <section id="future-work">
-      <h2>Ongoing and Future Research</h2>
-
-      <article class="publication" id="ocgf">
-        <img src="assets/future_ocgf.jpg" alt="OCGF" />
-        <div>
-          <div class="pub-title">Object-Conditioned Generative Field for Physically Consistent Scenario Editing</div>
-          <div class="authors">Ongoing Project</div>
-          <div class="venue">Closed-loop simulation · CARLA · NuRec · Object-level photorealistic generation</div>
-          <p>
-            We aim to convert simulator assets, rigid-body motion, and illumination priors into a differentiable local generator that produces appearance residuals, shadows, and contact-consistent details within object ROIs.
-          </p>
+          <div class="pub-links"><a href="#">[PDF]</a><a href="#">[Code]</a></div>
         </div>
       </article>
 
-      <article class="publication" id="interaction-script">
-        <img src="assets/future_interaction_script.jpg" alt="Interaction logic" />
+      <article class="publication" id="pac-rl">
+        <img src="assets/pub_pac_rl.jpg" alt="PAC-RL" />
         <div>
-          <div class="pub-title">Causal Interaction Logic Modeling for Vehicle-Pedestrian Scenario Generation</div>
-          <div class="authors">Ongoing Project</div>
-          <div class="venue">VLM-assisted annotation · Interaction scripts · Behavior-realistic simulation</div>
-          <p>
-            We study how to describe, annotate, and generate realistic vehicle-pedestrian interaction processes, including vehicle motion states, pedestrian actions, body movements, and causal response logic.
-          </p>
+          <div class="pub-title">PAC-RL: Physics-Adaptive Curriculum Reinforcement Learning for Safe Extreme-Speed Autonomous Racing</div>
+          <div class="authors"><strong>Ting Zhang*</strong>, et al.</div>
+          <div class="venue">Under Review <span class="badge">Extreme-speed Racing</span></div>
+          <div class="pub-links"><a href="#">[PDF]</a><a href="#">[Code]</a><a href="#">[Project]</a></div>
         </div>
       </article>
 
-      <article class="publication" id="adaptive-controller">
-        <img src="assets/future_adaptive_controller.jpg" alt="Adaptive controller" />
+      <article class="publication" id="meta-racing">
+        <img src="assets/pub_meta_racing.jpg" alt="Meta RL racing" />
         <div>
-          <div class="pub-title">Cross-platform Universal Adaptive Controller for Heterogeneous Unmanned Systems</div>
-          <div class="authors">Ongoing Project</div>
-          <div class="venue">Base dynamics · Online residual learning · Meta adaptation · Hardware acceleration</div>
-          <p>
-            We develop a reusable control core that combines prior dynamics, online residual modeling, meta-learning, and customized computing hardware for fast adaptation across heterogeneous robots and unmanned platforms.
-          </p>
+          <div class="pub-title">Meta Reinforcement Learning for Sim-to-Real Transfer in Autonomous Racing</div>
+          <div class="authors">Kai Yu, et al.</div>
+          <div class="venue">Under Review <span class="badge">Sim-to-Real</span></div>
+          <div class="pub-links"><a href="#">[PDF]</a><a href="#">[Code]</a></div>
         </div>
       </article>
     </section>
@@ -575,7 +779,7 @@
       <div class="project-grid">
         <div class="project-card">
           <h3>Causal Reasoning for Closed-loop Decision-making under Dynamic Occlusion</h3>
-          <p>Postdoctoral Science Foundation project focusing on spatio-temporal causal reasoning, counterfactual inference, asymmetric-information games, and closed-loop decision-making for autonomous vehicles.</p>
+          <p>Postdoctoral Science Foundation project focusing on spatio-temporal causal chains, counterfactual reasoning, asymmetric-information games, and closed-loop decision-making for autonomous vehicles.</p>
         </div>
         <div class="project-card">
           <h3>Generative Reasoning for Closed-loop Decision-making in Dense Interactive Scenarios</h3>
@@ -595,7 +799,7 @@
     <section id="team">
       <h2>Team</h2>
       <p>
-        We are building a research group for students interested in autonomous driving, robotics, reinforcement learning, closed-loop simulation, world models, and adaptive control. Team member information can be added here.
+        We are building a research group for students interested in autonomous driving, robotics, reinforcement learning, closed-loop simulation, world models, risk reasoning, and adaptive control. Team member information can be added here.
       </p>
     </section>
 
@@ -607,7 +811,7 @@
     </section>
 
     <footer>
-      <p>© 2026 Ting Zhang. Last updated: May 2026. This website is hosted by GitHub Pages.</p>
+      <p>© 2026 Interactive Decision Planning Group. Last updated: May 2026. This website is hosted by GitHub Pages.</p>
     </footer>
   </div>
 </body>
