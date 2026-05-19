@@ -238,7 +238,8 @@
       scroll-margin-top: 72px;
     }
 
-    .topic-card img {
+    .topic-card img,
+    .topic-card video {
       width: 220px;
       height: 132px;
       object-fit: cover;
@@ -438,7 +439,7 @@
 
       <div class="overview-grid">
         <article class="overview-card">
-          <img src="assets/research_simulation.jpg" alt="Closed-loop interactive simulation" />
+          <img src="assets/research_simulation.png" alt="Closed-loop interactive simulation" />
           <div class="overview-body">
             <span class="overview-tag">Direction 01</span>
             <h3>Closed-loop Interactive Simulation and Scenario Generation</h3>
@@ -455,7 +456,7 @@
         </article>
 
         <article class="overview-card">
-          <img src="assets/research_decision.jpg" alt="Reasoning-enhanced decision planning" />
+          <img src="assets/research_decision.png" alt="Reasoning-enhanced decision planning" />
           <div class="overview-body">
             <span class="overview-tag">Direction 02</span>
             <h3>Reasoning-enhanced Decision Planning in Dense Interactions</h3>
@@ -472,7 +473,7 @@
         </article>
 
         <article class="overview-card">
-          <img src="assets/research_control.jpg" alt="RL control and adaptation" />
+          <img src="assets/research_control.png" alt="RL control and adaptation" />
           <div class="overview-body">
             <span class="overview-tag">Direction 03</span>
             <h3>RL Control and Cross-platform Adaptation</h3>
@@ -496,7 +497,12 @@
       <h3>Direction 01 · Closed-loop Interactive Simulation and Scenario Generation</h3>
 
       <article class="topic-card" id="dynapark-ped-topic">
-        <img src="assets/topic_dynapark_ped.jpg" alt="Pedestrian-vehicle interactive parking" />
+        <!--<img src="assets/topic_dynapark_ped.jpg" alt="Pedestrian-vehicle interactive parking" />-->
+
+        <video class="topic-media" autoplay muted loop playsinline>
+          <source src="assets/topic_dynapark_ped.mp4" type="video/mp4">
+        </video>
+
         <div>
           <div class="topic-title">Pedestrian-Vehicle Dynamic Interactive Parking Scenario Construction</div>
           <div class="topic-meta">DynaPark-Ped · Pedestrian-aware autonomous parking · Closed-loop validation</div>
@@ -506,7 +512,7 @@
       </article>
 
       <article class="topic-card" id="ocgf-topic">
-        <img src="assets/topic_ocgf.jpg" alt="Object-conditioned generative field" />
+        <img src="assets/topic_ocgf.png" alt="Object-conditioned generative field" />
         <div>
           <div class="topic-title">Editable Closed-loop Scenario Generation Based on Digital Assets</div>
           <div class="topic-meta">CARLA · NuRec · Object-Conditioned Generative Field · Photorealistic scenario editing</div>
@@ -516,7 +522,11 @@
       </article>
 
       <article class="topic-card" id="interaction-script-topic">
-        <img src="assets/topic_interaction_script.jpg" alt="Interaction causal logic" />
+        <!--<img src="assets/topic_interaction_script.jpg" alt="Interaction causal logic" />-->
+        <video class="topic-media" autoplay muted loop playsinline>
+          <source src="assets/topic_interaction_script.mp4" type="video/mp4">
+        </video>
+
         <div>
           <div class="topic-title">Interaction Causal Logic Modeling and Script-driven Scenario Generation</div>
           <div class="topic-meta">VLM-assisted annotation · Causal interaction logic · Behavior-realistic simulation</div>
@@ -526,7 +536,11 @@
       </article>
 
       <article class="topic-card" id="image-enhancement-topic">
-        <img src="assets/topic_image_enhancement.jpg" alt="Scene recognition and image enhancement" />
+        <!-- <img src="assets/topic_image_enhancement.jpg" alt="Scene recognition and image enhancement" /> -->
+
+        <video class="topic-media" autoplay muted loop playsinline>
+          <source src="assets/topic_image_enhancement.mp4" type="video/mp4">
+        </video>
         <div>
           <div class="topic-title">Intelligent Scene Recognition and Image Enhancement</div>
           <div class="topic-meta">Low-light enhancement · Rain/fog removal · Glare suppression · Risk object detection</div>
@@ -538,7 +552,10 @@
       <h3>Direction 02 · Reasoning-enhanced Decision Planning in Dense Interactions</h3>
 
       <article class="topic-card" id="prediction-planning-topic">
-        <img src="assets/topic_prediction_planning.jpg" alt="Prediction-planning coupling" />
+        <!-- <img src="assets/topic_prediction_planning.jpg" alt="Prediction-planning coupling" /> -->
+        <video class="topic-media" autoplay muted loop playsinline>
+          <source src="assets/topic_prediction_planning.mp4" type="video/mp4">
+        </video>
         <div>
           <div class="topic-title">Prediction-Planning Coupled Interactive Decision Framework</div>
           <div class="topic-meta">Ego-conditioned prediction · Dynamic voxels · Closed-loop predictive planning</div>
@@ -548,7 +565,10 @@
       </article>
 
       <article class="topic-card" id="game-marl-topic">
-        <img src="assets/topic_game_marl.jpg" alt="Game-guided MARL" />
+        <!-- <img src="assets/topic_game_marl.jpg" alt="Game-guided MARL" /> -->
+        <video class="topic-media" autoplay muted loop playsinline>
+          <source src="assets/topic_prediction_planning.mp4" type="video/mp4">
+        </video>
         <div>
           <div class="topic-title">Game-guided Multi-agent Interactive Decision-making</div>
           <div class="topic-meta">Stackelberg game · Priority reasoning · MAPPO · Mixed traffic interaction</div>
@@ -558,7 +578,10 @@
       </article>
 
       <article class="topic-card" id="risk-rl-topic">
-        <img src="assets/topic_risk_rl.jpg" alt="Risk-aware safe RL" />
+        <!-- <img src="assets/topic_risk_rl.jpg" alt="Risk-aware safe RL" /> -->
+        <video class="topic-media" autoplay muted loop playsinline>
+          <source src="assets/topic_risk_rl.mp4" type="video/mp4">
+        </video>
         <div>
           <div class="topic-title">Risk-aware Safe Reinforcement Learning Decision-making</div>
           <div class="topic-meta">Optimistic-pessimistic dual actors · Risk field · Human-in-the-loop adversarial disturbance</div>
@@ -568,7 +591,7 @@
       </article>
 
       <article class="topic-card" id="human-robot-topic">
-        <img src="assets/topic_human_robot.jpg" alt="Human-vehicle and human-robot interaction" />
+        <img src="assets/topic_human_robot.png" alt="Human-vehicle and human-robot interaction" />
         <div>
           <div class="topic-title">Task-driven Decision-making for Human-Vehicle and Human-Robot Interaction</div>
           <div class="topic-meta">Pedestrian-aware parking · User-preference navigation · Embodied interactive decision-making</div>
@@ -578,7 +601,7 @@
       </article>
 
       <article class="topic-card" id="kg-llm-topic">
-        <img src="assets/topic_kg_llm.jpg" alt="Knowledge graph and LLM risk cognition" />
+        <img src="assets/topic_kg_llm.png" alt="Knowledge graph and LLM risk cognition" />
         <div>
           <div class="topic-title">Dangerous Scenario Cognition with Knowledge Graphs and Large Language Models</div>
           <div class="topic-meta">Multimodal perception · Semantic graph · Memory recall · LLM reasoning</div>
@@ -588,7 +611,7 @@
       </article>
 
       <article class="topic-card" id="memory-topic">
-        <img src="assets/topic_memory_driving.jpg" alt="Memory-enhanced autonomous driving" />
+        <img src="assets/topic_memory_driving.png" alt="Memory-enhanced autonomous driving" />
         <div>
           <div class="topic-title">Memory-enhanced Autonomous Driving Decision Planning</div>
           <div class="topic-meta">Geo-Risk Memory Graph · Spatial risk prior · Dynamic risk evolution · Driving experience retrieval</div>
@@ -598,7 +621,7 @@
       </article>
 
       <article class="topic-card" id="photoagent-topic">
-        <img src="assets/topic_photoagent.jpg" alt="PhotoAgent" />
+        <img src="assets/topic_photoagent.png" alt="PhotoAgent" />
         <div>
           <div class="topic-title">Language-guided Humanoid Portrait Photography via Viewpoint Policy Learning</div>
           <div class="topic-meta">PhotoAgent · Composition constraints · Humanoid robot · User preference</div>
@@ -610,7 +633,10 @@
       <h3>Direction 03 · Reinforcement Learning Control and Cross-platform Adaptation</h3>
 
       <article class="topic-card" id="pac-rl-topic">
-        <img src="assets/topic_pac_rl.jpg" alt="PAC-RL" />
+        <!-- <img src="assets/topic_pac_rl.jpg" alt="PAC-RL" /> -->
+        <video class="topic-media" autoplay muted loop playsinline>
+          <source src="assets/topic_pac_rl.mp4" type="video/mp4">
+        </video>
         <div>
           <div class="topic-title">Physics-adaptive Curriculum Reinforcement Learning for Extreme-speed Racing</div>
           <div class="topic-meta">Autonomous racing · Curvature-aware reward · TTC switching · Progressive curriculum</div>
@@ -620,7 +646,10 @@
       </article>
 
       <article class="topic-card" id="racing-deploy-topic">
-        <img src="assets/topic_racing_deploy.jpg" alt="Autonomous racing deployment" />
+        <!-- <img src="assets/topic_racing_deploy.jpg" alt="Autonomous racing deployment" /> -->
+        <video class="topic-media" autoplay muted loop playsinline>
+          <source src="assets/topic_racing_deploy.mp4" type="video/mp4">
+        </video>
         <div>
           <div class="topic-title">Robust Localization and Stable Control for Autonomous Racing Deployment</div>
           <div class="topic-meta">LiDAR localization · RMPC-F control · Abu Dhabi Autonomous Racing League</div>
@@ -630,7 +659,10 @@
       </article>
 
       <article class="topic-card" id="rs-parking-topic">
-        <img src="assets/topic_rs_parking.jpg" alt="RS-guided parking" />
+        <!-- <img src="assets/topic_rs_parking.jpg" alt="RS-guided parking" /> -->
+        <video class="topic-media" autoplay muted loop playsinline>
+          <source src="assets/topic_rs_parking.mp4" type="video/mp4">
+        </video>
         <div>
           <div class="topic-title">RS Cost Field-guided Reinforcement Learning for Autonomous Parking</div>
           <div class="topic-meta">Reeds-Shepp prior · Learnable cost field · Dual critic · Narrow-space parking</div>
@@ -640,7 +672,10 @@
       </article>
 
       <article class="topic-card" id="safe-control-topic">
-        <img src="assets/topic_safe_control.jpg" alt="Safe constrained RL control" />
+        <!-- <img src="assets/topic_safe_control.jpg" alt="Safe constrained RL control" /> -->
+        <video class="topic-media" autoplay muted loop playsinline>
+          <source src="assets/topic_safe_control.mp4" type="video/mp4">
+        </video>
         <div>
           <div class="topic-title">Safe Constrained Reinforcement Learning for Complex Motion Platforms</div>
           <div class="topic-meta">CMDP · CPO · PPO-Lagrangian · Vehicle dynamics shield</div>
@@ -650,7 +685,7 @@
       </article>
 
       <article class="topic-card" id="adaptive-controller-topic">
-        <img src="assets/topic_adaptive_controller.jpg" alt="Universal adaptive controller" />
+        <img src="assets/topic_adaptive_controller.png" alt="Universal adaptive controller" />
         <div>
           <div class="topic-title">Cross-platform Universal Adaptive Controller</div>
           <div class="topic-meta">Base dynamics · Online residual learning · Meta adaptation · Hardware acceleration</div>
@@ -660,7 +695,7 @@
       </article>
 
       <article class="topic-card" id="skill-transfer-topic">
-        <img src="assets/topic_skill_transfer.jpg" alt="Sim-to-real and morphology skill transfer" />
+        <img src="assets/topic_skill_transfer.png" alt="Sim-to-real and morphology skill transfer" />
         <div>
           <div class="topic-title">Adaptive Control for Sim-to-real, Cross-platform, and Cross-morphology Transfer</div>
           <div class="topic-meta">Meta-RL · Skill distillation · Universal-specific skill disentanglement · TRON1 morphology transfer</div>
