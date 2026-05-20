@@ -349,8 +349,22 @@
       color: #3f3f46;
       font-size: 14.5px;
     }
-
-    .team-grid {
+    
+    .team-grid .member-card > img {
+      width: 84px !important;
+      height: 84px !important;
+      max-width: 84px !important;
+      max-height: 84px !important;
+      min-width: 84px !important;
+      min-height: 84px !important;
+      object-fit: cover !important;
+      border-radius: 50% !important;
+      border: 1px solid var(--border);
+      background: #f1f5f9;
+      margin: 0 auto 10px;
+      display: block;
+    }
+    /* .team-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 18px;
@@ -375,7 +389,7 @@
       background: #f1f5f9;
       margin: 0 auto 10px;
       display: block;
-    }
+    } */
 
     footer {
       margin-top: 44px;
