@@ -248,6 +248,23 @@
       background: #f1f5f9;
     }
 
+    .topic-image-placeholder {
+      width: 220px;
+      min-height: 132px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    
+      background: #f3f5f7;
+      border: 1px dashed #aeb8c2;
+      border-radius: 8px;
+    
+      color: #7b8794;
+      font-size: 0.9rem;
+      font-style: italic;
+      text-align: center;
+    }
+
     .topic-title {
       font-size: 17px;
       font-weight: 700;
@@ -583,9 +600,13 @@
       </article>
 
       <article class="topic-card" id="interaction-script-topic">
-        <video class="topic-media" autoplay muted loop playsinline>
+        <!--<video class="topic-media" autoplay muted loop playsinline>
           <source src="assets/topic_interaction_script.mp4" type="video/mp4">
-        </video>
+        </video>-->
+
+        <div class="topic-image-placeholder">
+          Video demonstration in preparation
+        </div>
 
         <div>
           <div class="topic-title">Interaction Causal Logic Modeling and Script-driven Scenario Generation</div>
@@ -666,7 +687,10 @@
       </article>
 
       <article class="topic-card" id="memory-topic">
-        <img src="assets/topic_memory_driving.png" alt="Memory-enhanced autonomous driving" />
+        <!--<img src="assets/topic_memory_driving.png" alt="Memory-enhanced autonomous driving" />-->
+        <div class="topic-image-placeholder">
+          Video demonstration in preparation
+        </div>
         <div>
           <div class="topic-title">Memory-enhanced Autonomous Driving Decision Planning</div>
           <div class="topic-meta">Geo-Risk Memory Graph · Spatial risk prior · Dynamic risk evolution · Driving experience retrieval</div>
@@ -803,7 +827,7 @@
       </article>
 
       <article class="publication" id="denoise">
-        <img src="assets/pub_rs_iv.png" alt="Conditioned Diffusion Models" />
+        <img src="assets/pub_denoise.png" alt="Conditioned Diffusion Models" />
         <div>
           <div class="pub-title">DeNoise2Completion: Diffusion-Based Unified Model for Point Cloud Denoising and Completion</div>
           <div class="authors"><strong>Ting Zhang</strong></div>
